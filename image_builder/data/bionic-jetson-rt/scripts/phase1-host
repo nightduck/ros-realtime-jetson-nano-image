@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e -o pipefail
+
+pushd $CACHE_DIR
+
+# Get the kernel
+sudo echo 'deb https://repo.download.nvidia.com/jetson/rt-kernel r32.7 main' \
+        >> /etc/apt/sources.list.d/nvidia-l4t-apt-source.list
+sudo apt update
+sudo apt install nvidia-l4t-rt-kernel nvidia-l4t-rt-kernel-headers
+
+popd
