@@ -1,3 +1,3 @@
-if [ -f /opt/ros/galactic/setup.bash ]; then
-  source /opt/ros/galactic/setup.bash
+if [ -f /opt/ros/foxy/setup.bash ]; then
+  source /opt/ros/foxy/setup.bash
 fi

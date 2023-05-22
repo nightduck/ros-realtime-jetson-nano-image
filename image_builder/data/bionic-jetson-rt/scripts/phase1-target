@@ -5,10 +5,11 @@ echo "PINNED_CPU_FREQUENCY=${PINNED_CPU_FREQUENCY}" > /etc/default/cpu-frequency
 
 export DEBIAN_FRONTEND=noninteractive
 
-# Setting up PREEMPT_RT kernel
-cd /setup
-dpkg -i linux-*.deb
-rm linux-*.deb
+# Get the kernel
+sudo echo 'deb https://repo.download.nvidia.com/jetson/rt-kernel r32.7 main' \
+        >> /etc/apt/sources.list.d/nvidia-l4t-apt-source.list
+sudo apt update
+sudo apt install nvidia-l4t-rt-kernel nvidia-l4t-rt-kernel-headers
 
 # Remove some packages that are likely not needed:
 # - snapd: no one packages their robot apps with snap, right?
